@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using EShopping.Data.Entities;
 using EShopping.Data.Configurations;
+using EShopping.Data.Extensions;
 
 namespace EShopping.Data.EF
 {
@@ -15,6 +16,7 @@ namespace EShopping.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Configure database using Fluent API
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -30,6 +32,8 @@ namespace EShopping.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
+            //Data seeding 
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
 
