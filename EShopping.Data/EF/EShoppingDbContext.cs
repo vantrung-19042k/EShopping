@@ -5,10 +5,11 @@ using System.Text;
 using EShopping.Data.Entities;
 using EShopping.Data.Configurations;
 using EShopping.Data.Extensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace EShopping.Data.EF
 {
-    public class EShoppingDbContext : DbContext
+    public class EShoppingDbContext : IdentityDbContext
     {
         public EShoppingDbContext(DbContextOptions options) : base(options)
         {
