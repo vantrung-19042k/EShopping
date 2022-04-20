@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EShopping.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,6 +14,7 @@ namespace EShopping.Data.Entities
         public string ShipAddress { set; get; }
         public string ShipEmail { set; get; }
         public string ShipPhoneNumber { set; get; }
+        public OrderStatus Status { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }
     }
