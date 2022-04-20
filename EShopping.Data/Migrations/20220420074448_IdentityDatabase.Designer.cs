@@ -4,14 +4,16 @@ using EShopping.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EShopping.Data.Migrations
 {
     [DbContext(typeof(EShoppingDbContext))]
-    partial class EShoppingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220420074448_IdentityDatabase")]
+    partial class IdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,16 +75,6 @@ namespace EShopping.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "f73914da-bb15-4631-b6e6-da90136c0c7f",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("EShopping.Data.Entities.AppUser", b =>
@@ -149,27 +141,6 @@ namespace EShopping.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "52c9b425-bbad-4d13-9fad-676200fe3763",
-                            DateOfBirth = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "trung.pv194@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Trung",
-                            LastName = "Phan Van",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "trung.pv194@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKQIGScRLszI87DQmJUIroY4Tsrq7XFzqfdnW1ggV00zcZrDCoUT2wQu2wMUn5YhNw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("EShopping.Data.Entities.Cart", b =>
@@ -508,7 +479,7 @@ namespace EShopping.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 4, 20, 14, 50, 50, 221, DateTimeKind.Local).AddTicks(5373),
+                            DateCreated = new DateTime(2022, 4, 20, 14, 44, 47, 926, DateTimeKind.Local).AddTicks(5737),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -809,13 +780,6 @@ namespace EShopping.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            RoleId = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
